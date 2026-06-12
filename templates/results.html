@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Your Results - DPRP{% endblock %}
+
+{% block content %}
+<div class="results-container">
+    <h2>Your Privacy Risk Results</h2>
+
+    <div class="score-card {{ assessment.risk_level | lower }}">
+        <div class="score-circle">
+            <span class="score-number">{{ assessment.score }}</span>
+            <span class="score-label">/ 100</span>
+        </div>
+        <div class="risk-badge">{{ assessment.risk_level }} Risk</div>
+        <p class="taken-at">Assessment taken on {{ assessment.taken_at.strftime('%B %d, %Y') }}</p>
+    </div>
+
+    <div class="recommendations">
+        <h3>💡 Recommendations</h3>
+
+        {% if assessment.risk_level == 'Low' %}
+        <div class="rec-card good">
+            <p>✅ Great job! You have good privacy habits. Keep it up by staying informed about new threats and regularly reviewing your privacy settings.</p>
+        </div>
+
+        {% elif assessment.risk_level == 'Medium' %}
+        <div class="rec-card warning">
+            <p>⚠️ You have some privacy risks. Consider the following:</p>
+            <ul>
+                <li>Enable two-factor authentication on all important accounts.</li>
+                <li>Review your social media privacy settings.</li>
+                <li>Avoid using the same password across multiple sites.</li>
+            </ul>
+        </div>
+
+        {% elif assessment.risk_level == 'High' %}
+        <div class="rec-card danger">
+            <p>🚨 You have significant privacy risks. Take action now:</p>
+            <ul>
+                <li>Change weak or reused passwords immediately using a password manager.</li>
+                <li>Set all social media profiles to private.</li>
+                <li>Install antivirus software and keep your device updated.</li>
+                <li>Never click links in emails without verifying the sender.</li>
+                <li>Avoid using public Wi-Fi without a VPN.</li>
+            </ul>
+        </div>
+
+        {% elif assessment.risk_level == 'Critical' %}
+        <div class="rec-card critical">
+            <p>🔴 Your privacy is critically at risk. Act immediately:</p>
+            <ul>
+                <li>Change all your passwords right now using a strong password manager.</li>
+                <li>Enable 2FA on every account that supports it.</li>
+                <li>Lock down all social media profiles and remove personal information.</li>
+                <li>Install and run antivirus software immediately.</li>
+                <li>Never use public Wi-Fi without a VPN.</li>
+                <li>Read privacy policies before accepting app permissions.</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="result-actions">
+        <a href="{{ url_for('assessment') }}" class="btn btn-secondary">Retake Assessment</a>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Go Home</a>
+    </div>
+</div>
+{% endblock %}

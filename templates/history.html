@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}My History - DPRP{% endblock %}
+
+{% block content %}
+<div class="history-container">
+    <h2>📋 My Assessment History</h2>
+
+    {% if assessments %}
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Score</th>
+                <th>Risk Level</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in assessments %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ a.taken_at.strftime('%B %d, %Y') }}</td>
+                <td>{{ a.score }} / 100</td>
+                <td><span class="badge {{ a.risk_level | lower }}">{{ a.risk_level }}</span></td>
+                <td><a href="{{ url_for('results', assessment_id=a.id) }}" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem;">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="empty-history">
+        <p>You haven't taken any assessments yet.</p>
+        <a href="{{ url_for('assessment') }}" class="btn btn-primary">Take Assessment</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

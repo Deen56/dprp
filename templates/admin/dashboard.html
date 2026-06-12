@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard - DPRP{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <h2>⚙️ Admin Dashboard</h2>
+
+    <!-- Stats -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <h3>{{ users | length }}</h3>
+            <p>Total Users</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ assessments | length }}</h3>
+            <p>Total Assessments</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ assessments | selectattr('risk_level', 'equalto', 'High') | list | length +
+                   assessments | selectattr('risk_level', 'equalto', 'Critical') | list | length }}</h3>
+            <p>High/Critical Cases</p>
+        </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="admin-section">
+        <h3>Registered Users</h3>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Joined</th>
+                    <th>Assessments</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.created_at.strftime('%b %d, %Y') }}</td>
+                    <td>{{ user.assessments | length }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Assessments Table -->
+    <div class="admin-section">
+        <h3>Recent Assessments</h3>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Score</th>
+                    <th>Risk Level</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in assessments %}
+                <tr>
+                    <td>{{ a.id }}</td>
+                    <td>{{ a.user.username }}</td>
+                    <td>{{ a.score }}</td>
+                    <td><span class="badge {{ a.risk_level | lower }}">{{ a.risk_level }}</span></td>
+                    <td>{{ a.taken_at.strftime('%b %d, %Y') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

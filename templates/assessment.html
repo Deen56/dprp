@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Assessment - DPRP{% endblock %}
+
+{% block content %}
+<div class="assessment-container">
+    <h2>Digital Privacy Risk Assessment</h2>
+    <p class="subtitle">Answer all 15 questions honestly for the most accurate result.</p>
+
+    <!-- Progress Bar -->
+    <div class="progress-wrapper">
+        <div class="progress-info">
+            <span id="progress-text">0 of 15 answered</span>
+            <span id="progress-percent">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+    </div>
+
+    <form method="POST" id="assessment-form">
+        {% set categories = questions | groupby('category') %}
+        {% for category, qs in categories %}
+        <div class="category-section">
+            <h3>{{ category }}</h3>
+            {% for question in qs %}
+            <div class="question-card" id="qcard-{{ question.id }}">
+                <p><strong>Q{{ question.id }}.</strong> {{ question.text }}</p>
+                <div class="options">
+                    <label>
+                        <input type="radio" name="{{ question.id }}" value="1" required class="answer-radio"> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="{{ question.id }}" value="0" class="answer-radio"> No
+                    </label>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <div class="submit-section">
+            <p id="submit-warning" class="submit-warning" style="display:none;">⚠️ Please answer all questions before submitting.</p>
+            <button type="submit" class="btn btn-primary">Submit Assessment</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
