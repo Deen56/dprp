@@ -1,0 +1,35 @@
+DPRP Risk Score Explanation
+
+A score between 0 and 30 is Low Risk. This means your current digital privacy practices are strong. You are taking good steps to protect your personal information online. Continue maintaining these habits.
+
+A score between 31 and 60 is Medium Risk. This means there are some areas where your digital privacy could be improved. You are not in immediate danger but should take steps to address the identified weaknesses.
+
+A score between 61 and 100 is High Risk. This means your personal information is significantly exposed online. You should take immediate action to improve your privacy practices across multiple areas.
+
+Social Media Privacy
+
+Sharing too much personal information on social media is one of the biggest privacy risks. You should review your privacy settings on all platforms. Avoid posting your location, phone number, or daily routine publicly. Use strong privacy settings to limit who can see your posts and personal details.
+
+Password Security
+
+Using weak or repeated passwords puts all your accounts at risk. You should use a unique strong password for every account. A strong password contains at least 12 characters with a mix of letters numbers and symbols. Consider using a password manager to store them securely.
+
+Two Factor Authentication
+
+Two factor authentication adds an extra layer of security to your accounts. Even if someone gets your password they cannot access your account without a second verification step. You should enable two factor authentication on all important accounts especially email and banking.
+
+Device Security
+
+Your devices contain sensitive personal information. You should always lock your phone and computer with a strong password or biometric. Keep your operating system and apps updated regularly as updates often contain important security fixes. Avoid using public WiFi for sensitive activities like banking.
+
+Data Sharing and App Permissions
+
+Many apps collect more data than they need. You should review the permissions you have granted to apps on your phone and computer. Revoke any permissions that seem unnecessary such as a flashlight app requesting access to your contacts. Read privacy policies before signing up for new services.
+
+Improving Your Privacy Score
+
+To improve your DPRP score focus on the areas where you answered most poorly. Start with password security and two factor authentication as these have the biggest immediate impact. Then work on social media privacy settings and app permissions. Small consistent changes over time will significantly improve your digital privacy.
+
+About the DPRP Assessment
+
+The Digital Privacy Risk Assessment Platform assesses your privacy across 15 questions covering social media habits password practices device security data sharing and general awareness. Each question is weighted based on its impact on your overall privacy risk. Your score reflects your current privacy posture and is meant to guide improvement not to alarm you.

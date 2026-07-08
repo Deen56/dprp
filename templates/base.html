@@ -15,6 +15,7 @@
             <a href="{{ url_for('index') }}">Home</a>
             {% if current_user.is_authenticated %}
                 <a href="{{ url_for('assessment') }}">Assessment</a>
+                <a href="{{ url_for('chat_page') }}"> Ask Veyr Ai</a>
                 <a href="{{ url_for('history') }}">My History</a>
                 {% if current_user.is_admin %}
                     <a href="{{ url_for('admin_dashboard') }}">Admin</a>
@@ -45,7 +46,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p>🔒 <strong>DPRP</strong> — Digital Privacy Risk Assessment</p>
-            <p>Final Year Project &copy; 2025</p>
+            <p>Final Year Project &copy; 2026</p>
         </div>
     </footer>
 
