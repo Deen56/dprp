@@ -6,3 +6,4 @@ env/
 .env
 *.db
 .vscode/
+requirements.txt
